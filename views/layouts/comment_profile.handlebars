@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {{>head}}
+    <title>Profile Page</title>
+</head>
+
+<body>
+    {{> header}}
+
+    {{> post_box}}
+
+
+
+
+
+        {{!-- {{#each renderPostCommentProperty}}
+  <div id={{@index}}>
+    <textarea rows="3" cols="20" class="input textValue" data-a={{@index}}>
+
+{{content}}
+{{comment_content}}
+
+</textarea>
+
+  </div>
+  {{/each}} --}}
+
+
+        {{!-- {{#each renderPostProperty}}
+        <textarea>{{this.content}}
+        </textarea>
+        {{#each ../renderCommentProperty}}
+        <textarea>{{this.comment_content}}</textarea>
+        {{/each}}
+    {{/each}} --}}
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+
+            let content
+
+            $(".textValue").mouseleave(function (event) {
+                content = $(event.currentTarget).val();
+                console.log(content);
+
+            })
+
+            $(".putSubmit").click(function (event) {
+                let id = $(event.currentTarget).data('id');
+                console.log(id);
+                console.log(content);
+
+
+                axios.put("/profile/" + id + "?data=" + content)
+                    .then(res => console.log('value has been put'))
+
+            });
+
+            $(".deleteSubmit").click(function (event) {
+                let id = $(event.currentTarget).data('delete');
+                console.log(id);
+                console.log(typeof id);
+
+
+                axios.delete("/profile/" + id)
+                    .then(res => console.log('value has been deleted'))
+
+            })
+
+
+
+        </script>
+
+
+
+</body>
+
+</html>

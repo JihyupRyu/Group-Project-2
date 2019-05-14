@@ -1,0 +1,49 @@
+{{#each renderPostProperty}}
+<div id={{@index}}>
+    <textarea rows="3" cols="20" class="input textValue" data-a={{@index}}>
+
+{{content}}
+
+</textarea>
+
+
+
+    <i class="far fa-heart"></i>
+    {{!-- <a href="profile/comment/0" class='comment'>comment</a> --}}
+    <button class="comment" data-comment="{{@index}}"><a href="">comment</a></button>
+    <i class="far fa-share-square"></i>
+    <button class="putSubmit" data-id="{{@index}}">put</button>
+    <button class="deleteSubmit" data-delete="{{@index}}">delete</button>
+</div>
+
+
+{{/each}}
+
+<div id="notes">
+
+    </div>
+
+    {{!-- dont't know whether this position work --}}
+
+
+
+{{#each renderPostProperty}}
+<div id={{@index}}>
+    <textarea rows="3" cols="20" class="input textValue" data-a={{@index}}>
+
+{{content}}
+
+</textarea>
+
+
+
+    <i class="far fa-heart"></i>
+    {{!-- <a href="profile/comment/0" class='comment'>comment</a> --}}
+    <button class="comment" data-comment="{{@index}}"><a href="">comment</a></button>
+    <i class="far fa-share-square"></i>
+    <button class="putSubmit" data-id="{{@index}}">put</button>
+    <button class="deleteSubmit" data-delete="{{@index}}">delete</button>
+</div>
+
+
+{{/each}}
