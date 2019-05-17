@@ -1,7 +1,18 @@
 exports.getFeedSQL = 
-`select id, user_id, content,CATEGORY_ID from post
+`select post.id, post.user_id, post.content, post.CATEGORY_ID, category.category_name, users.username,users.profilepic
+from post
+inner join category
+on post.CATEGORY_ID = category.id
+inner join users
+on post.user_id = users.id
 WHERE category_id = $1
-ORDER BY id ASC
+ORDER BY id DESC
+`
+
+exports.identifyUserSQL = 
+`
+SELECT profilepic, username FROM USERS
+WHERE id = $1
 `
 
 exports.getFeedForEditSQL = 

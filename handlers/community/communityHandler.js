@@ -6,12 +6,26 @@ const getFeedFunc = async (req, res, next) => {
     let result = await SQLQuery.getFeedData(array);
 
     console.log(result);
-    res.send(result);
+    // res.send(result);
+
+    let userId = [req.user.id]
+    let userProfilePic = await SQLQuery.identifyUser(userId)
+    console.log(userProfilePic)
+
+    let renderObject = { renderPostProperty: result, 
+        category_name: [{ category_name: result[0]['category_name'] }], 
+        category_id: [{ category_id: result[0]['category_id'] }],
+        profilepic:[{ profilepic: userProfilePic[0]['profilepic'] }],
+        identityUser: [{ identityUserPic: userProfilePic[0]['profilepic'] }],
+        identityUsername: [{ identityUsername: userProfilePic[0]['username'] }],
+         layout: 'community' };
+
+    res.render('ji_post', renderObject)
 }
 
 const postFeedFunc = async (req, res, next) => {
     let user_id = req.user.id
-    let feedContent = req.body.data
+    let feedContent = req.query.data
     console.log(feedContent)
     var chars = feedContent.split('');
     var last = chars[chars.length - 1]
@@ -51,43 +65,29 @@ const putFeedFunc = async (req, res, next) => {
     let array = [community_id];
     let result = await SQLQuery.getFeedData(array);
 
-    let contentId = result[req.query.id].id
-    let content_user_id = result[req.query.id]['user_id']
-    let contentIdArray = [contentId]
-    console.log(contentId)
-    console.log(content_user_id)
-    console.log(contentIdArray)
+    let contentId = req.query.postid
+    let content_user_id = req.query.userid
+    // let contentIdArray = [contentId]
+
 
     if (content_user_id == req.user.id) {
 
         var feedContent = req.query.data
-        var chars = feedContent.split('');
-        var last = chars[chars.length - 1]
-        var last1 = chars[chars.length - 2]
-        var last2 = chars[chars.length - 3]
-        var last3 = chars[chars.length - 4]
-
-        var word = last3 + last2 + last1 + last
 
         let array = [];
-        if (word === '.jpg') {
-            array.push(req.query.data)
-            array.push('FALSE')
-            array.push('TRUE')
-            array.push(contentId)
-        } else {
-            array.push(req.query.data)
-            array.push('TRUE')
-            array.push('FALSE')
-            array.push(contentId)
-        }
+
+        array.push(feedContent)
+        array.push('TRUE')
+        array.push('FALSE')
+        array.push(contentId)
 
         SQLQuery.putFeedData(array)
         res.send(array)
 
     } else {
         res.send('You have no authority to edit this post because you are not the post owner');
-    }}
+    }
+}
 
 
 
@@ -97,8 +97,8 @@ const deleteFeedFunc = async (req, res, next) => {
     let array = [community_id];
     let result = await SQLQuery.getFeedData(array);
 
-    let contentId = result[req.query.id].id
-    let content_user_id = result[req.query.id]['user_id']
+    let contentId = req.query.postid
+    let content_user_id = req.query.userid
     let contentIdArray = [contentId]
 
     if (content_user_id == req.user.id) {

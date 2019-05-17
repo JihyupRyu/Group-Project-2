@@ -26,6 +26,18 @@ function getFeedData(array) {
     })
 }
 
+function identifyUser(array) {
+    return new Promise(function (resolve, reject) {
+        client.query(SQLStatement.identifyUserSQL,array, function (err, results) {
+            if (err) {
+                console.log(err);
+            }
+
+            resolve(results.rows);
+        })
+    })
+}
+
 function getFeedForEditData(array) {
     return new Promise(function (resolve, reject) {
         client.query(SQLStatement.getFeedSQL,array, function (err, results) {
@@ -88,6 +100,7 @@ function deleteFeedCommentData(array) {
 
 
 module.exports.getFeedData = getFeedData;
+module.exports.identifyUser = identifyUser
 module.exports.getFeedForEditData = getFeedForEditData;
 module.exports.postFeedData = postFeedData;
 module.exports.putFeedData = putFeedData;

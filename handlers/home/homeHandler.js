@@ -6,7 +6,16 @@ const getFeedFunc = async(req,res,next)=>{
     let result = await SQLQuery.getFeedData(array);
 
     console.log(result);
-    res.send(result);
+    // res.send(result);
+    let userProfilePic = await SQLQuery.identifyUser(array)
+
+    let renderPostObject = { renderPostProperty: result,
+         username: [{ username: result[0]['username'] }],
+         identityUser: [{ identityUserPic: userProfilePic[0]['profilepic'] }],
+         identityUsername: [{ identityUsername: userProfilePic[0]['username'] }],
+     layout:'homeMain'};
+
+    res.render('ji_home', renderPostObject);
 }
 
 const postFeedFunc = async(req,res,next)=>{

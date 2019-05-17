@@ -1,0 +1,26 @@
+<div class="container-fluid gedf-wrapper">
+    <div class="row">
+        <div class="col-md-3 cards">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="">
+                        <img class="img-thumbnail" width="100%" src="https://picsum.photos/80/80/?random?image=4">
+                    </div>
+                    <br>
+                    {{!-- <img src="/uploads/myImage-1557821530526.jpg" style="width:100px; height:auto;"> --}}
+                </div>
+                <br>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="h6 text-muted">Category</div>
+                        <div class="h5">                        {{#each category_name}}
+                        {{category_name}}
+                        {{/each}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 gedf-main cards">
+
+            <!--- \\\\\\\Post-->

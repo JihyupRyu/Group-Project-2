@@ -1,0 +1,175 @@
+{{#each renderPostProperty}}
+<div class="card gedf-card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mr-2">
+                    <img class="rounded-circle" width="45" src="{{{profilepic}}}" alt="">
+                </div>
+                <div class="ml-2">
+{{!-- {{if }} --}}
+                    <a href="/profile/{{{user_id}}}" class="fcLink"><div class="h5 m-0">{{category_name}}@{{username}}</div></a>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                        <div class="h6 dropdown-header">Configuration</div>
+                        <a class="dropdown-item" href="#">Save</a>
+                        <a class="dropdown-item" href="#">Hide</a>
+                        <a class="dropdown-item" href="#">Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
+
+
+        {{!-- <textarea class="card-text textedValue" style="border: none" rows="4" cols="20" data-putText="{{}}">{{content}}</textarea> --}}
+        {{!-- <p class="card-text"> --}}
+
+        {{!-- {{content}} --}}
+
+        {{!-- </p> --}}
+        <div class="card-text textedValue" contentEditable="true" style="border: none" rows="4" cols="20"
+            data-putText="{{id}}">{{{content}}}</div>
+
+        {{!-- <div class="commentWork-{{id}}" data-commentWork="{{id}}">  --}}
+
+        {{!-- <div></div> --}}
+
+    </div>
+    <div class="card-body icons-box">
+        <div class="d-flex justify-content-between align-items-center">
+            <i class="fas fa-heart icons-first"> 6</i>
+            <i class="fa fa-comment"> 5</i>
+        </div>
+    </div>
+    <div class="card-footer">
+        {{!-- <a href="#" class="card-link"><i class="far fa-heart"></i> Like</a>
+        <a href="#" class="card-link comment" data-comment="{{id}}"><i class="far fa-comment"></i> Comment</a>
+        {{!-- <div class="commentWork" data-commentWork="{{id}}"></div> --}}
+        {{!-- <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+        <a href="#" class="card-link putSubmit" data-put="{{id}}" data-userId="{{user_id}}"><i class="fa fa-mail-forward"></i>Edit</a>
+        <a href="#" class="card-link deleteSubmit" data-delete="{{id}}"><i class="fa fa-mail-forward"></i>Delete</a>  --}}
+        <a href="#" class="card-link"><i class="far fa-heart"></i> Like</a>
+        {{#if category_id}}
+        <a href="#" class="card-link comment" data-comment="{{this.id}}" data-community="{{this.category_id}}"><i
+                class="far fa-comment"></i> Comment</a>
+        {{else}}
+        <a href="#" class="card-link comment" data-comment="{{this.id}}" data-community="{{this.category_id}}"><i
+                class="far fa-comment"></i> Comment</a>
+        {{/if}}
+        {{!-- <div class="commentWork" data-commentWork="{{id}}"></div> --}}
+        <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+        {{#if category_id}}
+        <a href="#" class="card-link putSubmit" data-user="{{this.user_id}}" data-put="{{id}}"
+            data-community="{{this.category_id}}"><i class="fa fa-mail-forward"></i>Edit</a>
+        {{else}}
+        <a href="#" class="card-link putSubmit" data-user="{{this.user_id}}" data-put="{{id}}"
+            data-community="{{this.category_id}}"><i class="fa fa-mail-forward"></i>Edit</a>
+        {{/if}}
+        {{#if category_id}}
+        <a href="#" class="card-link deleteSubmit" data-user="{{user_id}}" data-delete="{{this.id}}"
+            data-community="{{this.category_id}}"><i class="fa fa-mail-forward"></i>Delete</a>
+        {{else}}
+        <a href="#" class="card-link deleteSubmit" data-user="{{user_id}}" data-delete="{{this.id}}"
+            data-community="{{this.category_id}}"><i class="fa fa-mail-forward"></i>Delete</a>
+        {{/if}}
+    </div>
+
+<div class="commentWork-{{id}}" data-commentWork="{{id}}"></div>
+
+<div>
+    {{#each ../identityUser}}
+     <div class="card-header comment-box read-more-state">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="mr-2">
+                        <img class="rounded-circle" width="35" src="{{{this.identityUserPic}}}" alt="">
+                    </div>
+                    <div class="ml-2">
+                        <a href="#" class="fcLink">
+                            <div class="h7 m-0"> 
+                                {{#each ../../identityUsername}}
+                                {{this.identityUsername}}
+                            {{/each}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <form action="#">
+                        <div class="form-group mb-0">
+                            <label class="sr-only" for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea class="form-control border-0 commentValue" id="exampleFormControlTextarea1" data-commentPost="{{../id}}" rows="1"
+                                placeholder="Leave your comments!"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <div class="col">
+                        <button type="button" class="btn btn-fposts btn-block btn-sm commentPost" data-post="{{../category_id}}" data-commentPost="{{../id}}">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+</div>
+
+  {{/each}}
+
+    {{/each}}
+
+    {{!-- // use as in main.handlebars{{body}}
+
+below div is from ji_profile.handlebar's bottom --}}
+
+
+
+
+{{!-- <div class="commentWork-{{id}}" data-commentWork="{{id}}">
+
+                                    
+                                </div> --}}
+
+
+
+                                    {{!-- <div class="card-header comment-box read-more-state">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="mr-2">
+                <img class="rounded-circle" width="35" src="https://picsum.photos/50/50" alt="">
+            </div>
+            <div class="ml-2">
+                <a href="#" class="fcLink">
+                    <div class="h7 m-0">Random Guy</div>
+                </a>
+            </div>
+        </div>
+        <div class="card-text">
+        {{comment_content}} 
+        </div>
+        <div>
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                    <div class="h6 dropdown-header">Menu</div>
+                    <a class="dropdown-item" href="#">Edit</a>
+                    <a class="dropdown-item" href="#">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

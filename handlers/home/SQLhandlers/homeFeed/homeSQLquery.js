@@ -14,9 +14,22 @@ var client = new pg.Client(config);
 
 client.connect();
 
-function getFeedData(array) {
+//array is originally here//
+function getFeedData() {
     return new Promise(function (resolve, reject) {
-        client.query(SQLStatement.getFeedSQL,array, function (err, results) {
+        client.query(SQLStatement.getFeedSQL, function (err, results) {
+            if (err) {
+                console.log(err);
+            }
+
+            resolve(results.rows);
+        })
+    })
+}
+
+function identifyUser(array) {
+    return new Promise(function (resolve, reject) {
+        client.query(SQLStatement.identifyUserSQL,array, function (err, results) {
             if (err) {
                 console.log(err);
             }
@@ -76,6 +89,7 @@ function deleteFeedCommentData(array) {
 
 
 module.exports.getFeedData = getFeedData;
+module.exports.identifyUser = identifyUser
 module.exports.postData = postData;
 module.exports.putData = putData;
 module.exports.deleteFeedData = deleteFeedData;

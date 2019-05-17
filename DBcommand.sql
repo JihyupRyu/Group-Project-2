@@ -7,6 +7,7 @@ CREATE TABLE "users" (
   "gender" varchar,
   "date_of_birth" varchar,
   "created_at" varchar
+  "profilepic" varchar
 );
 
 CREATE TABLE "category" (

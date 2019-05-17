@@ -1,7 +1,7 @@
-/* body {
-    width: 100%;
-    height: 1440px;
-} */
+
+.comment-box {
+    background-color: #fff;
+ }
 
 #navbar1 {
     background-color: ghostwhite;
@@ -242,4 +242,8 @@ body {
 
 a:hover {
     text-decoration: none !important;
+}
+
+textarea {
+    resize: none;
 }

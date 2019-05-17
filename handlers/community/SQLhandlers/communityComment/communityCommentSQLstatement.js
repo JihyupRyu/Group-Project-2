@@ -1,11 +1,13 @@
 exports.getCommentSQL = 
 `
-SELECT comment.id, comment.user_id,comment.comment_content,post.comment_box 
+SELECT comment.id, comment.user_id,comment.comment_content,post.comment_box, users.username, users.profilepic 
 from comment                                                                                  
 inner join post                                                                              
 on comment.comment_box_id = post.comment_box
+inner join users
+on comment.user_id = users.id
 where comment.comment_box_id = $1
-ORDER BY id ASC
+ORDER BY id DESC
 `
 
 exports.postCommentSQL = 

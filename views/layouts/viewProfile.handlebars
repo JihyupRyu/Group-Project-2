@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Note Taking</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="../../main.css" rel="stylesheet">
+    <!--Relative path!!!!!!-->
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="navbar1">
+            <a class="navbar-brand" href="/home">Pet Owners SNS</a>
+
+            {{!-- <form class="form-inline">
+                <input class="form-control form-control-sm mr-2" type="text" placeholder="Search"              aria-label="Search"  id="searchbar">
+                <a href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+            </form> --}}
+
+
+            <!-- Nav bar items -->
+
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <form class="form-inline ml-auto">
+                    <div class="input-group pl-8">
+                        <input type="text" class="form-control" aria-label="Recipient's username"
+                            aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" id="userInfo">
+                        {{!-- {{user}} --}}
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/profile">Your Profile
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Log out
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    {{!-- <li class="nav-item">
+                        <li class="nav-item">
+                        <a class="nav-link active" href="/signup">Sign Up
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li> --}}
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    {{!-- <div class="sign-form col">
+		    	<h1>Login Form</h1>
+		    	<form action="auth" method="POST">
+		    		<input type="text" name="username" placeholder="Username" required>
+		    		<input type="password" name="password" placeholder="Password" required>
+		    		<input type="submit" class="submitDetails">
+		    	</form>
+		    </div> --}}
+    {{>ji_profile}}
+    {{{ body }}}
+
+
+    {{!-- <div class="sign-form col">
+		    	<h1>Login Form</h1>
+		    	<form action="auth" method="POST">
+		    		<input type="text" name="username" placeholder="Username" required>
+		    		<input type="password" name="password" placeholder="Password" required>
+		    		<input type="submit" class="submitDetails">
+		    	</form>
+		    </div> --}}
+
+
+    </div>
+    <!-- /container -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="../../main.js"></script>
+</body>
+
+</html>
