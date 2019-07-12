@@ -1,13 +1,35 @@
-# README
-to run this project,
+# Group-Project-2
 
+Group-Project-2 is my second group project started 10 weeks after beginning bootcamp.
+
+## Getting Started
+
+You need to install Node.js in globally your machine. [Node.js](https://nodejs.org/en/)
+
+You also need to start Postgres in your machine as well.
+Create data base in postgres and then
+
+Inside of folder, there is  DBcommand.sql file.
+
+Copy and paste everything to postgres, then you will have all of the tables and columns you need.
+
+### Installing
+
+To run this code, you need to do npm install in folder first.
+
+inside of folder
+```
 npm install
+```
 
-Set up database following DBcommand.sql.
+and then in the folder
 
-Change config "user" in app.js and in handlers folder, inside of each SQLquery.js file as well.
+```
+node app.js
+```
 
-Then nodemon
+the server must run at localhost:3000
 
-**Remember If user or community don't have any post, you can't log in.**
-insert data to your local database first.
+## Authors
+
+* **Jihyup Ryu** - *Initial work* - [Jihyup Ryu](https://github.com/JihyupRyu)
