@@ -59,16 +59,15 @@
 }
 
 
-/* .form-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 50%;
-} */
 
-/*Style for first test*/
+
+
 body {
     background-color: #eeeeee;
+}
+
+.body1 {
+    position: relative;
 }
 
 .h7 {
@@ -95,7 +94,7 @@ body {
     display: none;
 }
 
-/*Until Here*/
+
 
 .state{
     width: 0.5rem;
@@ -149,7 +148,7 @@ body {
     left: 150px;
 }
 
-/*Login Form*/
+
 .login-form {
     width: 35%;
     margin: 30px auto;
@@ -209,9 +208,9 @@ body {
 .login-icons {
     font-size: 18px;
 }
-/*Login Form Till here*/
 
-/*Sign Up Form from here*/
+
+
 
 .login-form input[type="checkbox"] {
     margin-top: 2px;
@@ -229,7 +228,7 @@ body {
     width: 35%;
 }
 
-/*Sign Up form Till here*/
+
 
 .body {
     margin-top: 30%;

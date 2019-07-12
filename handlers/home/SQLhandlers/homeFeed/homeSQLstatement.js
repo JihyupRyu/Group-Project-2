@@ -1,9 +1,9 @@
-// exports.getFeedSQL = 
-// `select id, user_id, content,category_id from post
-// WHERE user_id = $1 OR
-// category_id IS NOT NULL
-// ORDER BY id ASC
-// `
+
+
+
+
+
+
 
 exports.getFeedSQL = 
 `select post.id, post.user_id, post.content,users.username, users.profilepic,post.category_id,category.category_name

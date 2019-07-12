@@ -6,27 +6,12 @@ const getCommentFunc = async (req, res, next) => {
     let array = [user_id];
     let feed = await PostSQLQuery.getFeedData(array);
 
-    let post_id = req.params.id // comment_box_id
-    console.log(post_id);
+    let post_id = req.params.id 
     let commentArray = [post_id];
     let result = await SQLQuery.getComment(commentArray);
 
-    console.log(result);
-
-
-    // let renderObject = {
-    //     renderPostCommentProperty: result
-    // }; //want to render the result' comment_content in main.js
-
-    // res.render('post', renderObject
-    // );
-
-    // let data = renderObject.renderPostCommentProperty
-    // res.json(result);
-    console.log('go')
-
     res.send(result)
-    // { id: 7, user_id: 1, content: 'cat', comment_content: }
+    
 
 }
 
@@ -34,11 +19,10 @@ const postCommentFunc = async (req, res, next) => {
 
     let user_id = req.user.id
     let commentContent = req.query.data
-    // let postArray = [user_id];
-    // let feed = await PostSQLQuery.getFeedData(postArray);
+    
+    
 
-    let post_id = req.params.id // comment_box_id
-    console.log(commentContent)
+    let post_id = req.params.id 
 
     let array = [];
 
@@ -48,26 +32,23 @@ const postCommentFunc = async (req, res, next) => {
         array.push('FALSE')
         array.push(post_id)
 
-    console.log(array)
     SQLQuery.postComment(array)
 
     let getArray = [post_id]
     let result = await SQLQuery.getComment(getArray);
-    console.log(result);
 
     res.send(array[0]);
 }
 
 const putCommentFunc = async (req, res, next) => {
 
-    // let userEditArray = [req.params.id, user_id]  //for comment box for user_id//
-    // // let result = await SQLQuery.getCommentForEdit(userEditArray); //flitering for the comment exclusively the user posted
-    // // console.log(result);
-    let grabbingCommentId = req.params.id //req.query.id should be the place equals to the user posted exclusively conmment
+    
+    
+    
+    let grabbingCommentId = req.params.id 
 
 
-    let editRightCommentId = grabbingCommentId // grabbing the commentid
-    console.log(editRightCommentId)
+    let editRightCommentId = grabbingCommentId 
 
     if(req.user.id == req.query.user ){
 
@@ -88,13 +69,13 @@ const putCommentFunc = async (req, res, next) => {
 }
 
 const deleteCommentFunc = async (req, res, next) => {
-    // let grabPostOwnerID = await SQLQuery.getCommentFeed([req.params.id])
-    // let postOwnerID = grabPostOwnerID[0]['user_id']
-    // console.log(postOwnerID)
-    // console.log(req.user.id)
+    
+    
+    
+    
 
     if (req.user.id == req.query.user) {
-        let commentId = [req.params.id] //grabing for the comment inside the post
+        let commentId = [req.params.id] 
   
 
         SQLQuery.deleteComment(commentId)
@@ -102,15 +83,15 @@ const deleteCommentFunc = async (req, res, next) => {
 
     } else  {
 
-        // let user_id = req.user.id
-        // let userEditArray = [req.params.id, user_id]  //for comment box for user_id//
-        // let result = await SQLQuery.getCommentForEdit(userEditArray); //flitering for the comment exclusively the user posted
-        // console.log(result);
+        
+        
+        
+        
 
-        // let contentId = req.params.id
-        // let array = [contentId]
+        
+        
 
-        // SQLQuery.deleteComment(array);
+        
 
         res.send('Your have no authority to delete the comment');
     }

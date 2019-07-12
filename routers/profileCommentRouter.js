@@ -14,30 +14,29 @@ module.exports = profileCommentRouter;
 
 
 
-// let feeds = renderPostProperty
-// let comments = renderCommentProperty
-// for (let i = 0; i < feeds.length; i++) {
-//     console.log(feeds[i]);
-//     for (let j = 0; comments.length; j++) {
-//         console.log(comments[j]);
-//     }
-// }
-
-// {{#each renderPostProperty}}
-// <textarea>
-// {{content}}
-// </textarea>
-// {{#each renderCommentProperty}}
-// <textarea>
-// {{comment_content}}
-// </textarea>
-// {{/each}}
-// {{/each}}
 
 
-// {{#each renderPostProperty}}
-//     <textarea>{{content}}</textarea>
-//     {{#each renderCommentProperty}}
-//     <textarea>{{comment_content}}</textarea>
-//     {{/each}}
-// {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

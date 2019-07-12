@@ -5,12 +5,10 @@ const getFeedFunc = async (req, res, next) => {
     let array = [community_id];
     let result = await SQLQuery.getFeedData(array);
 
-    console.log(result);
-    // res.send(result);
+    
 
     let userId = [req.user.id]
     let userProfilePic = await SQLQuery.identifyUser(userId)
-    console.log(userProfilePic)
 
     let renderObject = { renderPostProperty: result, 
         category_name: [{ category_name: result[0]['category_name'] }], 
@@ -26,7 +24,6 @@ const getFeedFunc = async (req, res, next) => {
 const postFeedFunc = async (req, res, next) => {
     let user_id = req.user.id
     let feedContent = req.query.data
-    console.log(feedContent)
     var chars = feedContent.split('');
     var last = chars[chars.length - 1]
     var last1 = chars[chars.length - 2]
@@ -34,7 +31,6 @@ const postFeedFunc = async (req, res, next) => {
     var last3 = chars[chars.length - 4]
 
     var word = last3 + last2 + last1 + last
-    console.log(word)
     let array = [];
     if (word === '.jpg') {
         array.push(feedContent)
@@ -49,12 +45,10 @@ const postFeedFunc = async (req, res, next) => {
         array.push('TRUE')
         array.push('FALSE')
     }
-    console.log(array)
     SQLQuery.postFeedData(array)
 
     let community_id = [req.params.id]
     let result = await SQLQuery.getFeedData(community_id);
-    console.log(result);
 
     res.send(array)
 }
@@ -67,7 +61,7 @@ const putFeedFunc = async (req, res, next) => {
 
     let contentId = req.query.postid
     let content_user_id = req.query.userid
-    // let contentIdArray = [contentId]
+    
 
 
     if (content_user_id == req.user.id) {

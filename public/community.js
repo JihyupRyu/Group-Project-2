@@ -32,7 +32,7 @@ $(".commentValue").mouseleave(function (event) {
 
 $(".commentPost").click(function (event) {
     event.preventDefault();
-    // let postContent = $(".commentValue").val()
+    
 
     let postId = $(event.currentTarget).data('commentpost')
 
@@ -93,7 +93,7 @@ $(".deleteSubmit").click(function (event) {
 
 })
 
-const postTemplate = Handlebars.compile(  //broswer said it is undefined here//
+const postTemplate = Handlebars.compile(  
     `
     {{#each post}} 
     <div class="card-header comment-box read-more-state">
@@ -139,11 +139,11 @@ $(".comment").click(function (event) {
     axios.get(`/community/comment/`+postId)
         .then((res) => {
             console.log("axios then is working")
-            // console.log(res.data, 'X')
+            
             console.log(res + 'hello')
             
             $('.commentWork-'+postId).html(postTemplate({ post: res.data }));
-            // reloadPost(res.data)
+            
 
             let comment_content
 
