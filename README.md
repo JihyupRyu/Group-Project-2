@@ -1,6 +1,6 @@
-# Group-Project-2
+# Pet owner SNS
 
-Group-Project-2 is my second group project started 10 weeks after beginning bootcamp.
+Pet owner SNS is my second group project started 10 weeks after beginning bootcamp. It is a Social media or SNS website to help people who has pet or want to have a pet to find more friends or ask questions about pet through our website. We also created community it is like forum style page, anyone can read and write the posts in the community. The user also be able to see other people's post as well, so it helps to find more friends easily.
 
 ## Getting Started
 
